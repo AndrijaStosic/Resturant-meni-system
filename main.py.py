@@ -10,16 +10,16 @@ def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(('localhost', 12345))  
     server_socket.listen(1)
-    print("Čekam na klijenta...")
+    print("Waiting to cliend...")
     
     client_socket, address = server_socket.accept()
-    print(f"Povezan sa {address}")
+    print(f"Connested to {address}")
     
     while True:
         data = client_socket.recv(1024).decode()
         if not data:
             break
-        print(f"Primljena narudžbina: {data}")
+        print(f"Order confirmed: {data}")
     
     client_socket.close()
     server_socket.close()
